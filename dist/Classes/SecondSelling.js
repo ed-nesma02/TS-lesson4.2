@@ -3,29 +3,22 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.SecondSelling = void 0;
 const AbstractSelling_1 = require("./AbstractSelling");
 class SecondSelling extends AbstractSelling_1.AbstractSelling {
-    quantityForDiscount;
+    _quantityForDiscount;
     constructor(product, quantity, quantityForDiscount) {
         super(product, quantity);
-        this.quantityForDiscount = quantityForDiscount;
+        this._quantityForDiscount = quantityForDiscount;
     }
     set setQuantityForDiscount(quantityForDiscount) {
-        this.quantityForDiscount = quantityForDiscount;
+        this._quantityForDiscount = quantityForDiscount;
     }
-    get getQuantityForDiscount() {
-        return this.quantityForDiscount;
+    get quantityForDiscount() {
+        return this._quantityForDiscount;
     }
     getPrice() {
-        if (this.quantityForDiscount <= this.quantity) {
-            return +(this.product.infoPrice * this.quantity * 0.9).toFixed(2);
+        if (this._quantityForDiscount <= this._quantity) {
+            return +(this._product.price * this._quantity * 0.9).toFixed(2);
         }
-        return this.product.infoPrice * this.quantity;
-    }
-    compare(product) {
-        if (product.getPrice() > this.getPrice())
-            return 1;
-        if (product.getPrice() === this.getPrice())
-            return 0;
-        return -1;
+        return this._product.price * this._quantity;
     }
 }
 exports.SecondSelling = SecondSelling;

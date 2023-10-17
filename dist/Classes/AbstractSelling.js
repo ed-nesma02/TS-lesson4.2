@@ -2,23 +2,30 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AbstractSelling = void 0;
 class AbstractSelling {
-    product;
-    quantity;
+    _product;
+    _quantity;
     constructor(product, quantity) {
-        this.product = product;
-        this.quantity = quantity;
+        this._product = product;
+        this._quantity = quantity;
     }
-    set setProduct(product) {
-        this.product = product;
+    set product(product) {
+        this._product = product;
     }
-    get getProduct() {
-        return this.product;
+    get product() {
+        return this._product;
     }
-    set setQuantity(quantity) {
-        this.quantity = quantity;
+    set quantity(quantity) {
+        this._quantity = quantity;
     }
-    get getQuantity() {
-        return this.quantity;
+    get quantity() {
+        return this._quantity;
+    }
+    compare(product) {
+        if (product.getPrice() > this.getPrice())
+            return 1;
+        if (product.getPrice() === this.getPrice())
+            return 0;
+        return -1;
     }
 }
 exports.AbstractSelling = AbstractSelling;

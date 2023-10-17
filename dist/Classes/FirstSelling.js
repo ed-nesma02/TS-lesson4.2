@@ -7,14 +7,7 @@ class FirstSelling extends AbstractSelling_1.AbstractSelling {
         super(product, quantity);
     }
     getPrice() {
-        return (this.product.infoPrice - 10) * this.quantity;
-    }
-    compare(product) {
-        if (product.getPrice() > this.getPrice())
-            return 1;
-        if (product.getPrice() === this.getPrice())
-            return 0;
-        return -1;
+        return (this._product.price - 10) * this._quantity;
     }
 }
 exports.FirstSelling = FirstSelling;

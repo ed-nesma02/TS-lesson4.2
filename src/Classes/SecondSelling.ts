@@ -2,30 +2,24 @@ import {AbstractSelling} from './AbstractSelling';
 import {Product} from './Product';
 
 export class SecondSelling extends AbstractSelling {
-  private quantityForDiscount: number;
+  private _quantityForDiscount: number;
   constructor(product: Product, quantity: number, quantityForDiscount: number) {
     super(product, quantity);
-    this.quantityForDiscount = quantityForDiscount;
+    this._quantityForDiscount = quantityForDiscount;
   }
 
   set setQuantityForDiscount(quantityForDiscount: number) {
-    this.quantityForDiscount = quantityForDiscount;
+    this._quantityForDiscount = quantityForDiscount;
   }
 
-  get getQuantityForDiscount() {
-    return this.quantityForDiscount;
+  get quantityForDiscount() {
+    return this._quantityForDiscount;
   }
 
   override getPrice(): number {
-    if (this.quantityForDiscount <= this.quantity) {
-      return +(this.product.infoPrice * this.quantity * 0.9).toFixed(2);
+    if (this._quantityForDiscount <= this._quantity) {
+      return +(this._product.price * this._quantity * 0.9).toFixed(2);
     }
-    return this.product.infoPrice * this.quantity;
-  }
-
-  compare(product: AbstractSelling): number {
-    if (product.getPrice() > this.getPrice()) return 1;
-    if (product.getPrice() === this.getPrice()) return 0;
-    return -1;
+    return this._product.price * this._quantity;
   }
 }

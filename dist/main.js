@@ -36,5 +36,5 @@ listProduct.sort(ProductPurchase);
 console.log(listProduct);
 console.log('\nПокупки:\n');
 listProduct.forEach(item => {
-    console.log(`${item.getProduct.getName} всего: ${item.getPrice()}`);
+    console.log(`${item.product.name} всего: ${item.getPrice()}`);
 });

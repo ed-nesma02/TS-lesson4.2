@@ -1,4 +1,3 @@
-import {AbstractSelling} from './Classes/AbstractSelling';
 import {FirstSelling} from './Classes/FirstSelling';
 import {Product} from './Classes/Product';
 import {SecondSelling} from './Classes/SecondSelling';
@@ -47,5 +46,5 @@ console.log(listProduct);
 console.log('\nПокупки:\n');
 
 listProduct.forEach(item => {
-  console.log(`${item.getProduct.getName} всего: ${item.getPrice()}`);
+  console.log(`${item.product.name} всего: ${item.getPrice()}`);
 })

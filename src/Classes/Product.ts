@@ -1,25 +1,25 @@
 export class Product {
-  private name: string;
-  private price: number;
+  private _name: string;
+  private _price: number;
 
   constructor(name: string, price: number) {
-    this.name = name;
-    this.price = price;
+    this._name = name;
+    this._price = price;
   }
 
-  set setName(name: string) {
-    this.name = name;
+  set name(name: string) {
+    this._name = name;
   }
 
-  get getName() {
-    return this.name;
+  get name() {
+    return this._name;
   }
 
-  set setPrice(price: number) {
-    this.price = price;
+  set price(price: number) {
+    this._price = price;
   }
 
-  get infoPrice() {
-    return this.price;
+  get price() {
+    return this._price;
   }
 }

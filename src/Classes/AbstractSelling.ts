@@ -1,30 +1,35 @@
 import {Product} from './Product';
 
 export abstract class AbstractSelling {
-  protected product: Product;
-  protected quantity: number;
+  protected _product: Product;
+  protected _quantity: number;
 
   constructor(product: Product, quantity: number) {
-    this.product = product;
-    this.quantity = quantity;
+    this._product = product;
+    this._quantity = quantity;
   }
 
-  set setProduct(product: Product) {
-    this.product = product;
+  set product(product: Product) {
+    this._product = product;
   }
 
-  get getProduct() {
-    return this.product;
+  get product() {
+    return this._product;
   }
 
-  set setQuantity(quantity: number) {
-    this.quantity = quantity;
+  set quantity(quantity: number) {
+    this._quantity = quantity;
   }
 
-  get getQuantity() {
-    return this.quantity;
+  get quantity() {
+    return this._quantity;
   }
 
   abstract getPrice(): number;
-  abstract compare(product: AbstractSelling): void;
+  
+  compare(product: AbstractSelling): number {
+    if (product.getPrice() > this.getPrice()) return 1;
+    if (product.getPrice() === this.getPrice()) return 0;
+    return -1;
+  }
 }
